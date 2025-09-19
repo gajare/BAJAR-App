@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Home & Living</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Home & Living</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Home & Living</span>
             </h2>
          </div>
          <div class="row">
@@ -173,16 +241,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="L-Shape Sofa" 
+                           data-price="75" 
+                           data-image="../images/home_and_living/h1_sofa.png"
+                           data-description="Modern L-shaped sofa with premium upholstery. Comfortable and spacious, perfect for family gatherings and relaxation.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h1_sofa.png" alt="">
+                     <img src="../images/home_and_living/h1_sofa.png" alt="L-Shape Sofa">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -198,16 +270,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="King Size Bed" 
+                           data-price="80" 
+                           data-image="../images/home_and_living/h2_bed.png"
+                           data-description="Elegant king size bed with sturdy wooden frame. Includes comfortable mattress for a perfect night's sleep.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h2_bed.png" alt="">
+                     <img src="../images/home_and_living/h2_bed.png" alt="King Size Bed">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -223,16 +299,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Working Table" 
+                           data-price="68" 
+                           data-image="../images/home_and_living/h3_table.png"
+                           data-description="Ergonomic working table with ample storage space. Perfect for home office or study area with modern design.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h3_table.png" alt="">
+                     <img src="../images/home_and_living/h3_table.png" alt="Working Table">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -248,16 +328,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Wall Tree" 
+                           data-price="70" 
+                           data-image="../images/home_and_living/h4_wall_tree.png"
+                           data-description="Decorative wall tree with multiple branches. Perfect for hanging coats, hats, and adding rustic charm to your entryway.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h4_wall_tree.png" alt="">
+                     <img src="../images/home_and_living/h4_wall_tree.png" alt="Wall Tree">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -273,20 +357,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="World Map" 
+                           data-price="75" 
+                           data-image="../images/home_and_living/h5_world_map.png"
+                           data-description="Vintage-style world map wall decoration. Educational and decorative, perfect for living rooms or study areas.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h5_world_map.png" alt="">
+                     <img src="../images/home_and_living/h5_world_map.png" alt="World Map">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Word-Map
+                        World Map
                      </h5>
                      <h6>
                         $75
@@ -298,16 +386,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Wall Clock" 
+                           data-price="58" 
+                           data-image="../images/home_and_living/h6.png"
+                           data-description="Elegant wall clock with Roman numerals. Silent movement mechanism and classic design complements any room decor.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h6.png" alt="">
+                     <img src="../images/home_and_living/h6.png" alt="Wall Clock">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -323,16 +415,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Wall Clock" 
+                           data-price="80" 
+                           data-image="../images/home_and_living/h7_clock.png"
+                           data-description="Modern minimalist wall clock with sleek design. Battery operated with precise quartz movement for accurate timekeeping.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h7_clock.png" alt="">
+                     <img src="../images/home_and_living/h7_clock.png" alt="Wall Clock">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -348,16 +444,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Lamp" 
+                           data-price="65" 
+                           data-image="../images/home_and_living/h8.png"
+                           data-description="Modern table lamp with adjustable brightness. Energy-efficient LED bulb with touch control and elegant design.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h8.png" alt="">
+                     <img src="../images/home_and_living/h8.png" alt="Lamp">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -373,16 +473,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Lamp" 
+                           data-price="65" 
+                           data-image="../images/home_and_living/h9.png"
+                           data-description="Bedside lamp with warm white light. Perfect for reading with adjustable neck and energy-saving features.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h9.png" alt="">
+                     <img src="../images/home_and_living/h9.png" alt="Lamp">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -398,16 +502,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Lamp" 
+                           data-price="65" 
+                           data-image="../images/home_and_living/h10.png"
+                           data-description="Contemporary floor lamp with tripod base. Provides ambient lighting and adds modern elegance to any room.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h10.png" alt="">
+                     <img src="../images/home_and_living/h10.png" alt="Lamp">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -423,20 +531,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Curtains" 
+                           data-price="65" 
+                           data-image="../images/home_and_living/h11.png"
+                           data-description="Elegant window curtains with blackout feature. Thermal insulated fabric available in various colors and patterns.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h11.png" alt="">
+                     <img src="../images/home_and_living/h11.png" alt="Curtains">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Curtons
+                        Curtains
                      </h5>
                      <h6>
                         $65
@@ -448,20 +560,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Towel" 
+                           data-price="65" 
+                           data-image="../images/home_and_living/h12.png"
+                           data-description="Premium cotton bath towels. Highly absorbent, soft, and available in various colors to match your bathroom decor.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/home_and_living/h12.png" alt="">
+                     <img src="../images/home_and_living/h12.png" alt="Towel">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Towell
+                        Towel
                      </h5>
                      <h6>
                         $65
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>
