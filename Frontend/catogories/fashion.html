@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Books & Stationery</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -51,7 +118,7 @@
                            <li><a href="groceries_and_essentials.html">Groceries & Essentials</a></li>
                            <li><a href="sports_and_fitness.html">Sports & Fitness</a></li>
                            <li><a href="books_and_stationery.html">Books & Stationery</a></li>
-                           <li><a href="../index.html">Automotive</a></li>
+                           <li><a href="automotive.html">Automotive</a></li>
                            <li><a href="toys_and_baby_products.html">Toys & Baby Products</a></li>
                            <li><a href="jewellery_and_accessories.html">Jewellery & Accessories</a></li>
                            <li><a href="../index.html">Health & Wellness</a></li>
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-      
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Books & Stationery Products</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Books & Stationery</span> Products
             </h2>
          </div>
          <div class="row">
@@ -173,20 +241,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
-                           Men's Shirt
+                        <a href="" class="option1 add-to-cart">
+                           Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Atomic Habits" 
+                           data-price="75" 
+                           data-image="../images/books_and_stanary/st1_Atomic_habits.webp"
+                           data-description="Atomic Habits by James Clear: An Easy & Proven Way to Build Good Habits & Break Bad Ones. Tiny changes, remarkable results.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p1.png" alt="">
+                     <img src="../images/books_and_stanary/st1_Atomic_habits.webp" alt="Atomic Habits">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Atomic Habits
                      </h5>
                      <h6>
                         $75
@@ -198,20 +270,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Rich Dad Poor Dad" 
+                           data-price="80" 
+                           data-image="../images/books_and_stanary/st2_Rich-dad_Poor-dad.jpg"
+                           data-description="Rich Dad Poor Dad by Robert Kiyosaki: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p2.png" alt="">
+                     <img src="../images/books_and_stanary/st2_Rich-dad_Poor-dad.jpg" alt="Rich Dad Poor Dad">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Rich Dad Poor Dad
                      </h5>
                      <h6>
                         $80
@@ -223,20 +299,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Crossword Puzzle Book" 
+                           data-price="68" 
+                           data-image="../images/books_and_stanary/st3_CrossWordline.webp"
+                           data-description="Challenging crossword puzzle book with over 100 puzzles of varying difficulty levels. Perfect for puzzle enthusiasts and brain exercise.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p3.png" alt="">
+                     <img src="../images/books_and_stanary/st3_CrossWordline.webp" alt="Crossword Puzzle Book">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Crossword Puzzle Book
                      </h5>
                      <h6>
                         $68
@@ -248,20 +328,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Classmate Notebook" 
+                           data-price="70" 
+                           data-image="../images/books_and_stanary/st4_Classmate.jpg"
+                           data-description="Premium Classmate notebook with 200 pages of high-quality paper. Perfect for students, professionals, and journaling.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p4.png" alt="">
+                     <img src="../images/books_and_stanary/st4_Classmate.jpg" alt="Classmate Notebook">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Classmate Notebook
                      </h5>
                      <h6>
                         $70
@@ -273,20 +357,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Classmate Spiral Notebook" 
+                           data-price="75" 
+                           data-image="../images/books_and_stanary/st5_Classmate.jpg"
+                           data-description="Classmate spiral notebook with durable cover and 150 pages. The spiral binding allows for easy page turning and flat writing surface.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p5.png" alt="">
+                     <img src="../images/books_and_stanary/st5_Classmate.jpg" alt="Classmate Spiral Notebook">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Classmate Spiral Notebook
                      </h5>
                      <h6>
                         $75
@@ -298,20 +386,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="School Supplies Kit" 
+                           data-price="58" 
+                           data-image="../images/books_and_stanary/st6_School.webp"
+                           data-description="Complete school supplies kit including notebooks, pens, pencils, erasers, and more. Everything a student needs in one convenient package.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p6.png" alt="">
+                     <img src="../images/books_and_stanary/st6_School.webp" alt="School Supplies Kit">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        School Supplies Kit
                      </h5>
                      <h6>
                         $58
@@ -323,20 +415,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Art Sketchbook" 
+                           data-price="80" 
+                           data-image="../images/books_and_stanary/st7_Pain.jpg"
+                           data-description="Professional art sketchbook with thick, acid-free paper suitable for various mediums including pencil, charcoal, and light washes.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p7.png" alt="">
+                     <img src="../images/books_and_stanary/st7_Pain.jpg" alt="Art Sketchbook">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Art Sketchbook
                      </h5>
                      <h6>
                         $80
@@ -348,20 +444,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Premium Pencil Set" 
+                           data-price="65" 
+                           data-image="../images/books_and_stanary/st8_Pencil.jpg"
+                           data-description="Set of 12 premium graphite pencils ranging from 2H to 6B. Perfect for artists, architects, and anyone who appreciates quality writing instruments.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p8.png" alt="">
+                     <img src="../images/books_and_stanary/st8_Pencil.jpg" alt="Premium Pencil Set">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Premium Pencil Set
                      </h5>
                      <h6>
                         $65
@@ -373,20 +473,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Colored Pencils" 
+                           data-price="65" 
+                           data-image="../images/books_and_stanary/st9_Pencils.jpg"
+                           data-description="Vibrant set of 24 colored pencils with rich pigments and smooth application. Ideal for coloring books, illustrations, and creative projects.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p9.png" alt="">
+                     <img src="../images/books_and_stanary/st9_Pencils.jpg" alt="Colored Pencils">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Colored Pencils
                      </h5>
                      <h6>
                         $65
@@ -398,20 +502,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Desk Calendar" 
+                           data-price="65" 
+                           data-image="../images/books_and_stanary/st10_Calender.jpg"
+                           data-description="Elegant desk calendar with monthly layouts, ample writing space for appointments, and beautiful photography. Perfect for office or home use.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p10.png" alt="">
+                     <img src="../images/books_and_stanary/st10_Calender.jpg" alt="Desk Calendar">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Desk Calendar
                      </h5>
                      <h6>
                         $65
@@ -423,20 +531,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Premium Erasers" 
+                           data-price="65" 
+                           data-image="../images/books_and_stanary/st11_eraser.jpg"
+                           data-description="Set of high-quality erasers that cleanly remove pencil marks without smudging or damaging paper. Latex-free and non-abrasive.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p11.png" alt="">
+                     <img src="../images/books_and_stanary/st11_eraser.jpg" alt="Premium Erasers">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Premium Erasers
                      </h5>
                      <h6>
                         $65
@@ -448,20 +560,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Artistic Sketchbook" 
+                           data-price="65" 
+                           data-image="../images/books_and_stanary/st12_shopner.jpg"
+                           data-description="Professional artistic sketchbook with textured pages suitable for various dry media. Perfect for drawing, sketching, and creative expression.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p12.png" alt="">
+                     <img src="../images/books_and_stanary/st12_shopner.jpg" alt="Artistic Sketchbook">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Artistic Sketchbook
                      </h5>
                      <h6>
                         $65
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Automotive</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -51,7 +118,7 @@
                            <li><a href="groceries_and_essentials.html">Groceries & Essentials</a></li>
                            <li><a href="sports_and_fitness.html">Sports & Fitness</a></li>
                            <li><a href="books_and_stationery.html">Books & Stationery</a></li>
-                           <li><a href="../index.html">Automotive</a></li>
+                           <li><a href="automotive.html">Automotive</a></li>
                            <li><a href="toys_and_baby_products.html">Toys & Baby Products</a></li>
                            <li><a href="jewellery_and_accessories.html">Jewellery & Accessories</a></li>
                            <li><a href="../index.html">Health & Wellness</a></li>
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-      
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Automotive Products</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Automotive</span> Products
             </h2>
          </div>
          <div class="row">
@@ -173,16 +241,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
-                           Men's Shirt
+                        <a href="" class="option1 add-to-cart">
+                           Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Seat Cover" 
+                           data-price="75" 
+                           data-image="../images/automotive/at1_Car Accessories (Seat Covers, Mats).jpg"
+                           data-description="Premium car seat covers made from high-quality materials. Protect your seats from wear and tear while adding style to your vehicle's interior.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at1_Car Accessories (Seat Covers, Mats).jpg" alt="">
+                     <img src="../images/automotive/at1_Car Accessories (Seat Covers, Mats).jpg" alt="Seat Cover">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -198,16 +270,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Bike Accessories" 
+                           data-price="80" 
+                           data-image="../images/automotive/at2_Bike Accessories.webp"
+                           data-description="Complete set of premium bike accessories including phone mount, water bottle holder, and storage bags. Perfect for cycling enthusiasts.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at2_Bike Accessories.webp" alt="">
+                     <img src="../images/automotive/at2_Bike Accessories.webp" alt="Bike Accessories">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -223,20 +299,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Car Mobile Charger" 
+                           data-price="68" 
+                           data-image="../images/automotive/at3_Car Electronics (Dashcams, Chargers).webp"
+                           data-description="Fast-charging car mobile charger with multiple USB ports. Compatible with all smartphones and devices. Keeps your devices powered on the go.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at3_Car Electronics (Dashcams, Chargers).webp" alt="">
+                     <img src="../images/automotive/at3_Car Electronics (Dashcams, Chargers).webp" alt="Car Mobile Charger">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Car mobile Charger
+                        Car Mobile Charger
                      </h5>
                      <h6>
                         $68
@@ -248,16 +328,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Car Shampoo" 
+                           data-price="70" 
+                           data-image="../images/automotive/at5_Car Care (Polish, Shampoo, Cleaners).avif"
+                           data-description="Premium car shampoo that gently cleans without damaging your vehicle's paint. Creates rich foam that lifts dirt and grime for a sparkling clean finish.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at5_Car Care (Polish, Shampoo, Cleaners).avif" alt="">
+                     <img src="../images/automotive/at5_Car Care (Polish, Shampoo, Cleaners).avif" alt="Car Shampoo">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -273,16 +357,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Engine Oil" 
+                           data-price="75" 
+                           data-image="../images/automotive/at6_Engine Oils.jpg"
+                           data-description="High-performance synthetic engine oil that provides superior protection for your engine. Reduces friction, improves fuel efficiency, and extends engine life.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at6_Engine Oils.jpg" alt="">
+                     <img src="../images/automotive/at6_Engine Oils.jpg" alt="Engine Oil">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -298,20 +386,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Helmet" 
+                           data-price="58" 
+                           data-image="../images/automotive/at4_Helmets.png"
+                           data-description="DOT-approved safety helmet with advanced ventilation system. Lightweight yet durable construction with comfortable interior padding for extended wear.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at4_Helmets.png" alt="">
+                     <img src="../images/automotive/at4_Helmets.png" alt="Helmet">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Helmate
+                        Helmet
                      </h5>
                      <h6>
                         $58
@@ -323,16 +415,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Car Tires" 
+                           data-price="80" 
+                           data-image="../images/automotive/at7_Tyres.jpg"
+                           data-description="Premium all-season car tires with excellent traction on wet and dry roads. Durable construction with long tread life and fuel-efficient design.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at7_Tyres.jpg" alt="">
+                     <img src="../images/automotive/at7_Tyres.jpg" alt="Car Tires">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -348,16 +444,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Car Tools and Kits" 
+                           data-price="65" 
+                           data-image="../images/automotive/at8_Car Tools & Kits.jpg"
+                           data-description="Comprehensive car tool kit with all essential tools for basic repairs and maintenance. Durable case with organized compartments for easy access.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at8_Car Tools & Kits.jpg" alt="">
+                     <img src="../images/automotive/at8_Car Tools & Kits.jpg" alt="Car Tools and Kits">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -373,20 +473,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Car Battery Charger" 
+                           data-price="65" 
+                           data-image="../images/automotive/at9_Batteries & Chargers.jpg"
+                           data-description="Automatic battery charger with multi-stage charging technology. Features reverse polarity protection and LED indicators for safe and efficient charging.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at9_Batteries & Chargers.jpg" alt="">
+                     <img src="../images/automotive/at9_Batteries & Chargers.jpg" alt="Car Battery Charger">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Car Mobile Charger
+                        Car Battery Charger
                      </h5>
                      <h6>
                         $65
@@ -398,16 +502,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Air Fresheners" 
+                           data-price="65" 
+                           data-image="../images/automotive/at10_Air Fresheners.webp"
+                           data-description="Long-lasting car air fresheners with premium fragrances. Easy to use and designed to eliminate odors while providing a pleasant driving environment.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at10_Air Fresheners.webp" alt="">
+                     <img src="../images/automotive/at10_Air Fresheners.webp" alt="Air Fresheners">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -423,16 +531,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Vehicle Covers" 
+                           data-price="65" 
+                           data-image="../images/automotive/at11_Vehicle Covers.webp"
+                           data-description="Weather-resistant vehicle covers with soft inner lining to protect your car's paint. Custom fit design with elastic hem and tie-down straps for secure coverage.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at11_Vehicle Covers.webp" alt="">
+                     <img src="../images/automotive/at11_Vehicle Covers.webp" alt="Vehicle Covers">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -448,16 +560,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Emergency Kits" 
+                           data-price="65" 
+                           data-image="../images/automotive/at12_Safety & Emergency Kits.webp"
+                           data-description="Comprehensive emergency kit with first aid supplies, warning triangles, flashlight, and essential tools. Essential for every vehicle for safety and preparedness.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/automotive/at12_Safety & Emergency Kits.webp" alt="">
+                     <img src="../images/automotive/at12_Safety & Emergency Kits.webp" alt="Emergency Kits">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>
