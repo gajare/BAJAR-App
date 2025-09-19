@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Groceries & Essentials</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Groceries & Essentials</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Groceries & Essentials</span>
             </h2>
          </div>
          <div class="row">
@@ -173,16 +241,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Rice" 
+                           data-price="75" 
+                           data-image="../images/groceries_and_essentials/b100_rice.webp"
+                           data-description="Premium quality long grain rice. Perfect for daily meals, rich in nutrients and delicious taste.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b100_rice.webp" alt="">
+                     <img src="../images/groceries_and_essentials/b100_rice.webp" alt="Rice">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -198,16 +270,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Cooking Oil" 
+                           data-price="80" 
+                           data-image="../images/groceries_and_essentials/b2_Cooking oil.webp"
+                           data-description="Pure vegetable cooking oil. Heart-healthy option for frying, baking, and all your cooking needs.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b2_Cooking oil.webp" alt="">
+                     <img src="../images/groceries_and_essentials/b2_Cooking oil.webp" alt="Cooking Oil">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -223,16 +299,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Milk Chittale" 
+                           data-price="68" 
+                           data-image="../images/groceries_and_essentials/b3_Milk.webp"
+                           data-description="Fresh, pasteurized milk from Chittale Farms. Rich in calcium and essential nutrients for strong bones.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b3_Milk.webp" alt="">
+                     <img src="../images/groceries_and_essentials/b3_Milk.webp" alt="Milk Chittale">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -248,16 +328,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Eggs" 
+                           data-price="70" 
+                           data-image="../images/groceries_and_essentials/b5_Eggs.jpg"
+                           data-description="Farm-fresh eggs from free-range chickens. Rich in protein and essential nutrients for a healthy diet.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b5_Eggs.jpg" alt="">
+                     <img src="../images/groceries_and_essentials/b5_Eggs.jpg" alt="Eggs">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -273,16 +357,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Bread" 
+                           data-price="75" 
+                           data-image="../images/groceries_and_essentials/b4_Bread.jpg"
+                           data-description="Freshly baked whole wheat bread. Soft, nutritious and perfect for sandwiches and toast.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b4_Bread.jpg" alt="">
+                     <img src="../images/groceries_and_essentials/b4_Bread.jpg" alt="Bread">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -298,16 +386,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Sugar" 
+                           data-price="58" 
+                           data-image="../images/groceries_and_essentials/b6_Sugar.jpg"
+                           data-description="Pure cane sugar. Perfect for sweetening beverages, baking, and all your culinary needs.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b6_Sugar.jpg" alt="">
+                     <img src="../images/groceries_and_essentials/b6_Sugar.jpg" alt="Sugar">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -323,16 +415,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="TATA Salt" 
+                           data-price="80" 
+                           data-image="../images/groceries_and_essentials/b7_Salt.jpg"
+                           data-description="Pure and iodized TATA salt. Essential for cooking and maintaining proper thyroid function.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b7_Salt.jpg" alt="">
+                     <img src="../images/groceries_and_essentials/b7_Salt.jpg" alt="TATA Salt">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -348,20 +444,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Wheat" 
+                           data-price="65" 
+                           data-image="../images/groceries_and_essentials/b8_wheat.jpg"
+                           data-description="Organic whole wheat grains. Perfect for making fresh, nutritious flour for chapatis and bread.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b8_wheat.jpg" alt="">
+                     <img src="../images/groceries_and_essentials/b8_wheat.jpg" alt="Wheat">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Weat
+                        Wheat
                      </h5>
                      <h6>
                         $65
@@ -373,16 +473,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Tea" 
+                           data-price="65" 
+                           data-image="../images/groceries_and_essentials/b9_Tea.jpg"
+                           data-description="Premium quality tea leaves. Aromatic and refreshing, perfect for starting your day right.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b9_Tea.jpg" alt="">
+                     <img src="../images/groceries_and_essentials/b9_Tea.jpg" alt="Tea">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -398,16 +502,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Rice" 
+                           data-price="65" 
+                           data-image="../images/groceries_and_essentials/b100_rice.webp"
+                           data-description="Premium quality long grain rice. Perfect for daily meals, rich in nutrients and delicious taste.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b100_rice.webp" alt="">
+                     <img src="../images/groceries_and_essentials/b100_rice.webp" alt="Rice">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -423,16 +531,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Cumin" 
+                           data-price="65" 
+                           data-image="../images/groceries_and_essentials/b11_cumin.jpeg"
+                           data-description="Aromatic cumin seeds. Adds distinctive flavor to curries, rice dishes, and various culinary preparations.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b11_cumin.jpeg" alt="">
+                     <img src="../images/groceries_and_essentials/b11_cumin.jpeg" alt="Cumin">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -448,16 +560,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Toilet Paper" 
+                           data-price="65" 
+                           data-image="../images/groceries_and_essentials/b12_Toilet paper.webp"
+                           data-description="Soft and strong toilet paper. Essential household item with maximum comfort and absorbency.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/groceries_and_essentials/b12_Toilet paper.webp" alt="">
+                     <img src="../images/groceries_and_essentials/b12_Toilet paper.webp" alt="Toilet Paper">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>
