@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="">
+    <title>Bajar App - Order Confirmation</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../css/responsive.css" rel="stylesheet" />
+    <style>
+        .order-container {
+            padding: 30px 0;
+        }
+
+        .confirmation-alert {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .order-card,
+        .tracking-card,
+        .address-card,
+        .actions-card {
+            background: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .status-confirmed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-shipped {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status-delivered {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .tracking-progress {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            height: 4px;
+            background: #f7444e;
+            z-index: 2;
+            transition: width 0.5s ease;
+        }
+
+        .step {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 25%;
+        }
+
+        .step-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 16px;
+        }
+
+        .step.active .step-icon {
+            background: #f7444e;
+            color: white;
+        }
+
+        .step.completed .step-icon {
+            background: #28a745;
+            color: white;
+        }
+
+        .step-text {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .step.active .step-text {
+            color: #f7444e;
+            font-weight: bold;
+        }
+
+        .step.completed .step-text {
+            color: #28a745;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-action {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-action:hover {
+            background: #f8f9fa;
+        }
+
+        .btn-cancel {
+            color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-cancel:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-return {
+            color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-return:hover {
+            background: #ffc107;
+            color: black;
+        }
+
+        .btn-replace {
+            color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .btn-replace:hover {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn-address {
+            color: #6f42c1;
+            border-color: #6f42c1;
+        }
+
+        .btn-address:hover {
+            background: #6f42c1;
+            color: white;
+        }
+
+        .estimated-delivery {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .delivery-date {
+            font-size: 18px;
+            font-weight: bold;
+            color: #004085;
+        }
+
+        .notification-badge {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="sub_page">
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="../index.html"><img width="250" src="../images/Bajar-App.png"
+                            alt="#" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Categories <span
+                                            class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="electronics.html">Electronics & Appliances</a></li>
+                                    <li><a href="fashion.html">Fashion & Apparel</a></li>
+                                    <li><a href="home_and_living.html">Home & Living</a></li>
+                                    <li><a href="beauty_and_personal_care.html">Beauty & Personal Care</a></li>
+                                    <li><a href="groceries_and_essentials.html">Groceries & Essentials</a></li>
+                                    <li><a href="sports_and_fitness.html">Sports & Fitness</a></li>
+                                    <li><a href="books_and_stationery.html">Books & Stationery</a></li>
+                                    <li><a href="automotive.html">Automotive</a></li>
+                                    <li><a href="toys_and_baby_products.html">Toys & Baby Products</a></li>
+                                    <li><a href="jewellery_and_accessories.html">Jewellery & Accessories</a></li>
+                                    <li><a href="health_and_wellness.html">Health & Wellness</a></li>
+                                    <li><a href="pet_supplies.html">Pet Supplies</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../product.html">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../blog_list.html">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;"
+                                        xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path
+                                                    d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                                          c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                                          C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                                          c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                                          C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path
+                                                    d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                                            </g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </li>
+                            <form class="form-inline">
+                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            <!-- User icon added here -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- end header section -->
+    </div>
+
+    <!-- Notification Badge -->
+    <div class="notification-badge" id="orderNotification">
+        <i class="fa fa-check-circle"></i> Your order has been placed successfully!
+    </div>
+
+    <!-- inner page section -->
+    <section class="inner_page_head">
+        <div class="container_fuild">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <h3>Order Confirmation</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end inner page section -->
+
+    <!-- order confirmation section -->
+    <section class="order-container">
+        <div class="container">
+            <!-- Success Alert -->
+            <div class="confirmation-alert">
+                <h4><i class="fa fa-check-circle" style="color: #28a745;"></i> Thank you for your order!</h4>
+                <p>Your order has been confirmed and will be shipped soon. Order ID: <strong>#BAJAR-782415</strong></p>
+                <p>A confirmation email has been sent to your registered email address.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Order Details Card -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <h4>Order Details</h4>
+                            <span class="order-status status-confirmed">Confirmed</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img id="order-product-img" src="../images/electronics/e1.png" alt="Product Image"
+                                    class="product-image">
+                            </div>
+                            <div class="col-md-9">
+                                <h4 id="order-product-name">Charger</h4>
+                                <p id="order-product-price">Price: $75.00</p>
+                                <p id="order-product-description">High-quality fast charger with multiple connectivity
+                                    options. Compatible with all major smartphone brands.</p>
+                                <p><strong>Quantity:</strong> <span id="order-quantity">1</span></p>
+                                <p><strong>Order Date:</strong> <span id="order-date">November 5, 2023</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tracking Card -->
+                    <div class="tracking-card">
+                        <h4>Order Tracking</h4>
+                        <div class="tracking-progress">
+                            <div class="progress-bar" id="progress-bar" style="width: 25%;"></div>
+                            <div class="progress-steps">
+                                <div class="step completed" id="step-ordered">
+                                    <div class="step-icon">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="step-text">Ordered</div>
+                                </div>
+                                <div class="step active" id="step-confirmed">
+                                    <div class="step-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="step-text">Confirmed</div>
+                                </div>
+                                <div class="step" id="step-shipped">
+                                    <div class="step-icon">
+                                        <i class="fa fa-truck"></i>
+                                    </div>
+                                    <div class="step-text">Shipped</div>
+                                </div>
+                                <div class="step" id="step-delivered">
+                                    <div class="step-icon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <div class="step-text">Delivered</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="estimated-delivery">
+                            <h5>Estimated Delivery</h5>
+                            <p class="delivery-date" id="delivery-date">Wednesday, November 8, 2023</p>
+                            <p>Your order is being processed and will be shipped within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Address Card -->
+                    <div class="address-card">
+                        <h4>Shipping Address</h4>
+                        <p id="shipping-name"><strong>Amol Gajare</strong></p>
+                        <p id="shipping-address">Majestic Mrughvarsha, DSK<br>Pune 411041</p>
+                        <p id="shipping-contact">Contact: 7721049062</p>
+                    </div>
+
+                    <!-- Actions Card -->
+                    <div class="actions-card">
+                        <h4>Order Management</h4>
+                        <p>Need to make changes to your order?</p>
+                        
+                        <div class="action-buttons">
+                            <button class="btn-action btn-cancel" onclick="openModal('cancelModal')">
+                                <i class="fa fa-times"></i> Cancel Order
+                            </button>
+                            <button class="btn-action btn-return" onclick="openModal('returnModal')">
+                                <i class="fa fa-exchange"></i> Return
+                            </button>
+                            <button class="btn-action btn-replace" onclick="openModal('replaceModal')">
+                                <i class="fa fa-refresh"></i> Replacement
+                            </button>
+                            <button class="btn-action btn-address" onclick="openModal('addressModal')">
+                                <i class="fa fa-map-marker"></i> Change Address
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Support Card -->
+                    <div class="order-card">
+                        <h4>Need Help?</h4>
+                        <p>Our customer support team is here to help with your order.</p>
+                        <p><strong>Email:</strong> support@bajarapp.com</p>
+                        <p><strong>Phone:</strong> +1 (800) 123-4567</p>
+                        <p><strong>Hours:</strong> Mon-Sun, 8AM-10PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end order confirmation section -->
+
+    <!-- Cancel Order Modal -->
+    <div id="cancelModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('cancelModal')">&times;</span>
+            <h3>Cancel Order</h3>
+            <p>Are you sure you want to cancel this order?</p>
+            <div class="form-group">
+                <label>Reason for cancellation:</label>
+                <select class="form-control">
+                    <option>Changed my mind</option>
+                    <option>Found a better price</option>
+                    <option>Ordered by mistake</option>
+                    <option>Delivery time too long</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Additional comments:</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <button class="btn btn-danger" onclick="cancelOrder()">Confirm Cancellation</button>
+        </div>
+    </div>
+
+    <!-- Return Order Modal -->
+    <div id="returnModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('returnModal')">&times;</span>
+            <h3>Return Item</h3>
+            <p>Select the reason for return:</p>
+            <div class="form-group">
+                <select class="form-control">
+                    <option>Product damaged</option>
+                    <option>Wrong item received</option>
+                    <option>Product not as described</option>
+                    <option>No longer needed</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Additional details:</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <p><small>Return pickup will be scheduled within 24 hours of request.</small></p>
+            <button class="btn btn-warning" onclick="requestReturn()">Request Return</button>
+        </div>
+    </div>
+
+    <!-- Replacement Modal -->
+    <div id="replaceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('replaceModal')">&times;</span>
+            <h3>Request Replacement</h3>
+            <p>Why do you need a replacement?</p>
+            <div class="form-group">
+                <select class="form-control">
+                    <option>Product damaged</option>
+                    <option>Wrong item received</option>
+                    <option>Defective product</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Additional details:</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <button class="btn btn-info" onclick="requestReplacement()">Request Replacement</button>
+        </div>
+    </div>
+
+    <!-- Change Address Modal -->
+    <div id="addressModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('addressModal')">&times;</span>
+            <h3>Change Delivery Address</h3>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-control" id="new-name" value="Amol Gajare">
+            </div>
+            <div class="form-group">
+                <label>New Delivery Address</label>
+                <textarea class="form-control" id="new-address" rows="3">Majestic Mrughvarsha, DSK Pune 411041</textarea>
+            </div>
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="tel" class="form-control" id="new-contact" value="7721049062">
+            </div>
+            <button class="btn btn-primary" onclick="updateAddress()">Update Address</button>
+        </div>
+    </div>
+
+    <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <div class="footer_contact">
+                        <h4>
+                            Reach at..
+                        </h4>
+                        <div class="contact_link_box">
+                            <a href="">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>
+                                    Location
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    Call +01 1234567890
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    demo@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <div class="footer_detail">
+                        <a href="../index.html" class="footer-logo">
+                            Bajar App
+                        </a>
+                        <p>
+                            Necessary, making this first true generator on the Internet. It uses a dictionary of over 200
+                            Latin words, combined with
+                        </p>
+                        <div class="footer_social">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-pinterest" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <div class="map_container">
+                        <div class="map">
+                            <div id="googleMap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-info">
+                <div class="col-lg-7 mx-auto px-0">
+                    <p>
+                        &copy; <span id="displayYear"></span> All Rights Reserved By
+                        <a href="https://html.design/">Free Html Templates</a><br>
+
+                        Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                    </p>
+                </div>
+                <div id="orderNotification" style="display:none;"></div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="../js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="../js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="../js/custom.js"></script>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            params.product = urlParams.get('product') || 'Charger';
+            params.price = urlParams.get('price') || '75';
+            params.image = urlParams.get('image') || '../images/electronics/e1.png';
+            params.quantity = urlParams.get('quantity') || '1';
+
+            return params;
+        }
+
+        // Function to update order details based on URL parameters
+        function updateOrderDetails() {
+            const params = getUrlParams();
+            const today = new Date();
+            const deliveryDate = new Date();
+            deliveryDate.setDate(today.getDate() + 3); // 3 days from now
+
+            // Format dates
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const orderDateStr = today.toLocaleDateString('en-US', options);
+            const deliveryDateStr = deliveryDate.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+
+            // Update product details
+            document.getElementById('order-product-name').textContent = params.product;
+            document.getElementById('order-product-price').textContent = 'Price: $' + params.price;
+            document.getElementById('order-product-img').src = params.image;
+            document.getElementById('order-product-img').alt = params.product;
+            document.getElementById('order-quantity').textContent = params.quantity;
+            document.getElementById('order-date').textContent = orderDateStr;
+            document.getElementById('delivery-date').textContent = deliveryDateStr;
+        }
+
+        // Show notification
+        function showNotification() {
+            const notification = document.getElementById('orderNotification');
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Order action functions
+        function cancelOrder() {
+            alert('Your order cancellation request has been submitted.');
+            closeModal('cancelModal');
+            // In a real application, you would send this to your backend
+        }
+
+        function requestReturn() {
+            alert('Your return request has been submitted. We will contact you within 24 hours.');
+            closeModal('returnModal');
+        }
+
+        function requestReplacement() {
+            alert('Your replacement request has been submitted. We will process it soon.');
+            closeModal('replaceModal');
+        }
+
+        function updateAddress() {
+            const newName = document.getElementById('new-name').value;
+            const newAddress = document.getElementById('new-address').value;
+            const newContact = document.getElementById('new-contact').value;
+            
+            document.getElementById('shipping-name').innerHTML = '<strong>' + newName + '</strong>';
+            document.getElementById('shipping-address').textContent = newAddress;
+            document.getElementById('shipping-contact').textContent = 'Contact: ' + newContact;
+            
+            alert('Delivery address updated successfully!');
+            closeModal('addressModal');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            updateOrderDetails();
+            showNotification();
+            
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(event) {
+                const modals = document.getElementsByClassName('modal');
+                for (let i = 0; i < modals.length; i++) {
+                    if (event.target == modals[i]) {
+                        modals[i].style.display = 'none';
+                    }
+                }
+            });
+            
+            // Simulate order progress (for demo purposes)
+            setTimeout(function() {
+                document.getElementById('progress-bar').style.width = '50%';
+                document.getElementById('step-confirmed').classList.remove('active');
+                document.getElementById('step-confirmed').classList.add('completed');
+                document.getElementById('step-shipped').classList.add('active');
+                document.querySelector('.order-status').textContent = 'Shipped';
+                document.querySelector('.order-status').className = 'order-status status-shipped';
+            }, 10000);
+        });
+    </script>
+</body>
+
+</html>

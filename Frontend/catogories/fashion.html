@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Fashion</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-      
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Fashion Products</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Fashion</span>
             </h2>
          </div>
          <div class="row">
@@ -173,20 +241,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
-                           Men's Shirt
+                        <a href="" class="option1 add-to-cart">
+                           Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Men's Casual Shirt" 
+                           data-price="75" 
+                           data-image="../images/p1.png"
+                           data-description="Premium quality men's casual shirt made from 100% cotton. Comfortable fit with a modern design, perfect for everyday wear.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p1.png" alt="">
+                     <img src="../images/p1.png" alt="Men's Casual Shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Men's Casual Shirt
                      </h5>
                      <h6>
                         $75
@@ -198,20 +270,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Men's Formal Shirt" 
+                           data-price="80" 
+                           data-image="../images/p2.png"
+                           data-description="Elegant men's formal shirt with crisp finish. Perfect for office wear and formal occasions. Available in multiple sizes.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p2.png" alt="">
+                     <img src="../images/p2.png" alt="Men's Formal Shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Men's Formal Shirt
                      </h5>
                      <h6>
                         $80
@@ -223,20 +299,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Women's Summer Dress" 
+                           data-price="68" 
+                           data-image="../images/p3.png"
+                           data-description="Light and breezy women's summer dress with floral pattern. Made from breathable fabric for maximum comfort in warm weather.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p3.png" alt="">
+                     <img src="../images/p3.png" alt="Women's Summer Dress">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Women's Summer Dress
                      </h5>
                      <h6>
                         $68
@@ -248,20 +328,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Women's Evening Dress" 
+                           data-price="70" 
+                           data-image="../images/p4.png"
+                           data-description="Elegant women's evening dress with sophisticated design. Perfect for special occasions and formal events.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p4.png" alt="">
+                     <img src="../images/p4.png" alt="Women's Evening Dress">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Women's Evening Dress
                      </h5>
                      <h6>
                         $70
@@ -273,20 +357,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Women's Casual Dress" 
+                           data-price="75" 
+                           data-image="../images/p5.png"
+                           data-description="Comfortable women's casual dress perfect for everyday wear. Features a relaxed fit and versatile style.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p5.png" alt="">
+                     <img src="../images/p5.png" alt="Women's Casual Dress">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Women's Casual Dress
                      </h5>
                      <h6>
                         $75
@@ -298,20 +386,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Women's Party Dress" 
+                           data-price="58" 
+                           data-image="../images/p6.png"
+                           data-description="Stylish women's party dress with eye-catching design. Perfect for celebrations and social gatherings.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p6.png" alt="">
+                     <img src="../images/p6.png" alt="Women's Party Dress">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Women's Party Dress
                      </h5>
                      <h6>
                         $58
@@ -323,20 +415,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Women's Cocktail Dress" 
+                           data-price="80" 
+                           data-image="../images/p7.png"
+                           data-description="Chic women's cocktail dress perfect for semi-formal events. Features a flattering silhouette and quality fabric.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p7.png" alt="">
+                     <img src="../images/p7.png" alt="Women's Cocktail Dress">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Women's Cocktail Dress
                      </h5>
                      <h6>
                         $80
@@ -348,20 +444,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Men's Business Shirt" 
+                           data-price="65" 
+                           data-image="../images/p8.png"
+                           data-description="Professional men's business shirt with classic cut. Ideal for corporate environments and business meetings.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p8.png" alt="">
+                     <img src="../images/p8.png" alt="Men's Business Shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Men's Business Shirt
                      </h5>
                      <h6>
                         $65
@@ -373,20 +473,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Men's Denim Shirt" 
+                           data-price="65" 
+                           data-image="../images/p9.png"
+                           data-description="Stylish men's denim shirt with rugged appeal. Versatile enough for both casual and semi-casual occasions.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p9.png" alt="">
+                     <img src="../images/p9.png" alt="Men's Denim Shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Men's Denim Shirt
                      </h5>
                      <h6>
                         $65
@@ -398,20 +502,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Men's Checkered Shirt" 
+                           data-price="65" 
+                           data-image="../images/p10.png"
+                           data-description="Trendy men's checkered shirt with contemporary pattern. Perfect for casual outings and weekend wear.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p10.png" alt="">
+                     <img src="../images/p10.png" alt="Men's Checkered Shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Men's Checkered Shirt
                      </h5>
                      <h6>
                         $65
@@ -423,20 +531,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Men's Striped Shirt" 
+                           data-price="65" 
+                           data-image="../images/p11.png"
+                           data-description="Classic men's striped shirt with vertical pattern. Offers a slim fit and comfortable wearing experience.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p11.png" alt="">
+                     <img src="../images/p11.png" alt="Men's Striped Shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Men's Shirt
+                        Men's Striped Shirt
                      </h5>
                      <h6>
                         $65
@@ -448,20 +560,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Women's Maxi Dress" 
+                           data-price="65" 
+                           data-image="../images/p12.png"
+                           data-description="Elegant women's maxi dress with flowing design. Perfect for summer days and beach vacations.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/p12.png" alt="">
+                     <img src="../images/p12.png" alt="Women's Maxi Dress">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Women's Dress
+                        Women's Maxi Dress
                      </h5>
                      <h6>
                         $65
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>
