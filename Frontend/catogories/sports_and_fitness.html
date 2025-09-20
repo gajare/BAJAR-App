@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Sports & Fitness</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -48,7 +115,7 @@
                            <li><a href="fashion.html">Fashion & Apparel</a></li>
                            <li><a href="home_and_living.html">Home & Living</a></li>
                            <li><a href="beauty_and_personal_care.html">Beauty & Personal Care</a></li>
-                           <li><a href="sport_and_fitness/s.html">Groceries & Essentials</a></li>
+                           <li><a href="groceries_and_essentials.html">Groceries & Essentials</a></li>
                            <li><a href="sports_and_fitness.html">Sports & Fitness</a></li>
                            <li><a href="books_and_stationery.html">Books & Stationery</a></li>
                            <li><a href="automotive.html">Automotive</a></li>
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Sports & Fitness Products</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Sports & Fitness</span>
             </h2>
          </div>
          <div class="row">
@@ -173,20 +241,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Premium Yoga Mat" 
+                           data-price="75" 
+                           data-image="../images/sport_and_fitness/s1_yoga_mat.jpg"
+                           data-description="High-quality yoga mat with non-slip surface. Perfect for yoga, pilates, and floor exercises. Provides excellent cushioning and support.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s1_yoga_mat.jpg" alt="">
+                     <img src="../images/sport_and_fitness/s1_yoga_mat.jpg" alt="Premium Yoga Mat">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Yoga Mat
+                        Premium Yoga Mat
                      </h5>
                      <h6>
                         $75
@@ -198,20 +270,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Adjustable Dumbbells" 
+                           data-price="80" 
+                           data-image="../images/sport_and_fitness/s2_Dumbbells.jpg"
+                           data-description="Set of adjustable dumbbells with multiple weight options. Perfect for home workouts and strength training.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s2_Dumbbells.jpg" alt="">
+                     <img src="../images/sport_and_fitness/s2_Dumbbells.jpg" alt="Adjustable Dumbbells">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Dumbbells
+                        Adjustable Dumbbells
                      </h5>
                      <h6>
                         $80
@@ -223,20 +299,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Resistance Bands Set" 
+                           data-price="68" 
+                           data-image="../images/sport_and_fitness/s3_Resistance bands.jpg"
+                           data-description="Complete set of resistance bands with varying resistance levels. Ideal for strength training, physical therapy, and mobility exercises.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s3_Resistance bands.jpg" alt="">
+                     <img src="../images/sport_and_fitness/s3_Resistance bands.jpg" alt="Resistance Bands Set">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Resistance Bands
+                        Resistance Bands Set
                      </h5>
                      <h6>
                         $68
@@ -248,20 +328,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Folding Treadmill" 
+                           data-price="70" 
+                           data-image="../images/sport_and_fitness/s4_Treadmill.png"
+                           data-description="Compact folding treadmill with multiple speed settings and LCD display. Perfect for home cardio workouts.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s4_Treadmill.png" alt="">
+                     <img src="../images/sport_and_fitness/s4_Treadmill.png" alt="Folding Treadmill">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Treadmill
+                        Folding Treadmill
                      </h5>
                      <h6>
                         $70
@@ -273,20 +357,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Speed Jump Rope" 
+                           data-price="75" 
+                           data-image="../images/sport_and_fitness/s5_Jump rope.png"
+                           data-description="Professional speed jump rope with adjustable length and ball bearings for smooth rotation. Great for cardio and coordination.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s5_Jump rope.png" alt="">
+                     <img src="../images/sport_and_fitness/s5_Jump rope.png" alt="Speed Jump Rope">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Jump Rope
+                        Speed Jump Rope
                      </h5>
                      <h6>
                         $75
@@ -298,20 +386,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Insulated Water Bottle" 
+                           data-price="58" 
+                           data-image="../images/sport_and_fitness/s6_Water bottle.webp"
+                           data-description="1L insulated water bottle that keeps drinks cold for 24 hours. Leak-proof design with carrying handle, perfect for workouts.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s6_Water bottle.webp" alt="">
+                     <img src="../images/sport_and_fitness/s6_Water bottle.webp" alt="Insulated Water Bottle">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Water Bottle
+                        Insulated Water Bottle
                      </h5>
                      <h6>
                         $58
@@ -323,20 +415,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Running Shoes" 
+                           data-price="80" 
+                           data-image="../images/sport_and_fitness/s7_Sports shoes.jpg"
+                           data-description="Professional running shoes with cushioning technology and breathable mesh. Designed for comfort and performance.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s7_Sports shoes.jpg" alt="">
+                     <img src="../images/sport_and_fitness/s7_Sports shoes.jpg" alt="Running Shoes">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Shoes
+                        Running Shoes
                      </h5>
                      <h6>
                         $80
@@ -348,20 +444,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Fitness Smartwatch" 
+                           data-price="65" 
+                           data-image="../images/sport_and_fitness/s8_smartwatch.webp"
+                           data-description="Advanced fitness smartwatch with heart rate monitoring, GPS, and multiple sport modes. Tracks your activity and sleep patterns.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s8_smartwatch.webp" alt="">
+                     <img src="../images/sport_and_fitness/s8_smartwatch.webp" alt="Fitness Smartwatch">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Smart Watch
+                        Fitness Smartwatch
                      </h5>
                      <h6>
                         $65
@@ -373,20 +473,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Exercise Bike" 
+                           data-price="65" 
+                           data-image="../images/sport_and_fitness/s25_bike.webp"
+                           data-description="Stationary exercise bike with adjustable resistance and LCD display. Perfect for indoor cycling workouts.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s25_bike.webp" alt="">
+                     <img src="../images/sport_and_fitness/s25_bike.webp" alt="Exercise Bike">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Execerise Bike
+                        Exercise Bike
                      </h5>
                      <h6>
                         $65
@@ -398,20 +502,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Workout Gloves" 
+                           data-price="65" 
+                           data-image="../images/sport_and_fitness/s10_Gym gloves.webp"
+                           data-description="Padded workout gloves with wrist support. Prevents blisters and provides better grip during weight training.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s10_Gym gloves.webp" alt="">
+                     <img src="../images/sport_and_fitness/s10_Gym gloves.webp" alt="Workout Gloves">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Gloves
+                        Workout Gloves
                      </h5>
                      <h6>
                         $65
@@ -423,20 +531,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Whey Protein Powder" 
+                           data-price="65" 
+                           data-image="../images/sport_and_fitness/s24_protine_powder.jpg"
+                           data-description="Premium whey protein powder for muscle recovery and growth. Rich in essential amino acids and easy to mix.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s24_protine_powder.jpg" alt="">
+                     <img src="../images/sport_and_fitness/s24_protine_powder.jpg" alt="Whey Protein Powder">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        protine Powder
+                        Whey Protein Powder
                      </h5>
                      <h6>
                         $65
@@ -448,20 +560,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Performance T-shirt" 
+                           data-price="65" 
+                           data-image="../images/sport_and_fitness/s22_t-shirt.jpg"
+                           data-description="Moisture-wicking performance T-shirt with breathable fabric. Keeps you dry and comfortable during intense workouts.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/sport_and_fitness/s22_t-shirt.jpg" alt="">
+                     <img src="../images/sport_and_fitness/s22_t-shirt.jpg" alt="Performance T-shirt">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        T-shirt
+                        Performance T-shirt
                      </h5>
                      <h6>
                         $65
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>
