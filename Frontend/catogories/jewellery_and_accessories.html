@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <!-- Basic -->
@@ -12,7 +12,7 @@
    <meta name="description" content="" />
    <meta name="author" content="" />
    <link rel="shortcut icon" href="../images/favicon.png" type="">
-   <title>Famms - Fashion HTML Template</title>
+   <title>Bajar App - Jewellery & Accessories</title>
    <!-- bootstrap core css -->
    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
    <!-- font awesome style -->
@@ -21,6 +21,73 @@
    <link href="../css/style.css" rel="stylesheet" />
    <!-- responsive style -->
    <link href="../css/responsive.css" rel="stylesheet" />
+   <style>
+      .product-modal {
+         display: none;
+         position: fixed;
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.5);
+      }
+      
+      .modal-content {
+         background-color: #fefefe;
+         margin: 10% auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         max-width: 600px;
+         border-radius: 10px;
+         position: relative;
+      }
+      
+      .close-modal {
+         color: #aaa;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+      }
+      
+      .close-modal:hover {
+         color: black;
+      }
+      
+      .quick-view-content {
+         display: flex;
+         flex-wrap: wrap;
+      }
+      
+      .quick-view-image {
+         flex: 1;
+         min-width: 250px;
+         text-align: center;
+      }
+      
+      .quick-view-details {
+         flex: 2;
+         min-width: 300px;
+         padding: 0 20px;
+      }
+      
+      .btn-buy-now {
+         background-color: #f7444e;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         margin-top: 15px;
+         cursor: pointer;
+      }
+      
+      .btn-buy-now:hover {
+         background-color: #d63d46;
+      }
+   </style>
 </head>
 
 <body class="sub_page">
@@ -36,8 +103,8 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
@@ -51,7 +118,7 @@
                            <li><a href="groceries_and_essentials.html">Groceries & Essentials</a></li>
                            <li><a href="sports_and_fitness.html">Sports & Fitness</a></li>
                            <li><a href="books_and_stationery.html">Books & Stationery</a></li>
-                           <li><a href="automotive.html">Automotive</a></li>
+                           <li><a href="./index.html">Automotive</a></li>
                            <li><a href="toys_and_baby_products.html">Toys & Baby Products</a></li>
                            <li><a href="jewellery_and_accessories.html">Jewellery & Accessories</a></li>
                            <li><a href="health_and_wellness.html">Health & Wellness</a></li>
@@ -145,27 +212,28 @@
       </header>
 
       <!-- end header section -->
-
    </div>
+
    <!-- inner page section -->
    <section class="inner_page_head">
       <div class="container_fuild">
          <div class="row">
             <div class="col-md-12">
                <div class="full">
-                  <h3>Product Grid</h3>
+                  <h3>Jewellery & Accessories Products</h3>
                </div>
             </div>
          </div>
       </div>
    </section>
    <!-- end inner page section -->
+
    <!-- product section -->
    <section class="product_section layout_padding">
       <div class="container">
          <div class="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Jewellery & Accessories</span>
             </h2>
          </div>
          <div class="row">
@@ -173,20 +241,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Diamond Ring" 
+                           data-price="75" 
+                           data-image="../images/jewellery_and_accessories/j1_diamond.webp"
+                           data-description="Exquisite diamond ring with premium cut and clarity. Perfect for special occasions and gifts.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j1_diamond.webp" alt="">
+                     <img src="../images/jewellery_and_accessories/j1_diamond.webp" alt="Diamond Ring">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Diamond
+                        Diamond Ring
                      </h5>
                      <h6>
                         $75
@@ -198,20 +270,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Gold Kada" 
+                           data-price="80" 
+                           data-image="../images/jewellery_and_accessories/j2_kada.jpg"
+                           data-description="Traditional gold kada with intricate designs. Made with high-quality gold for lasting wear.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j2_kada.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j2_kada.jpg" alt="Gold Kada">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Breslate
+                        Gold Kada
                      </h5>
                      <h6>
                         $80
@@ -223,20 +299,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Pearl Necklace" 
+                           data-price="68" 
+                           data-image="../images/jewellery_and_accessories/j3_har.png"
+                           data-description="Elegant pearl necklace with a beautiful clasp. Perfect for formal occasions and weddings.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j3_har.png" alt="">
+                     <img src="../images/jewellery_and_accessories/j3_har.png" alt="Pearl Necklace">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Neckless
+                        Pearl Necklace
                      </h5>
                      <h6>
                         $68
@@ -248,20 +328,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Gold Necklace" 
+                           data-price="70" 
+                           data-image="../images/jewellery_and_accessories/j4_har.jpg"
+                           data-description="Traditional gold necklace with detailed craftsmanship. A timeless piece for any collection.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j4_har.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j4_har.jpg" alt="Gold Necklace">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Neckless
+                        Gold Necklace
                      </h5>
                      <h6>
                         $70
@@ -273,16 +357,20 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Complete Jewellery Set" 
+                           data-price="75" 
+                           data-image="../images/jewellery_and_accessories/j5_set.webp"
+                           data-description="Complete jewellery set including necklace, earrings, and bracelet. Perfect for weddings and special events.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j5_set.webp" alt="">
+                     <img src="../images/jewellery_and_accessories/j5_set.webp" alt="Complete Jewellery Set">
                   </div>
                   <div class="detail-box">
                      <h5>
@@ -298,20 +386,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Diamond Pendant" 
+                           data-price="58" 
+                           data-image="../images/jewellery_and_accessories/j6_pendant.webp"
+                           data-description="Stunning diamond pendant with a delicate chain. A perfect gift for loved ones.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j6_pendant.webp" alt="">
+                     <img src="../images/jewellery_and_accessories/j6_pendant.webp" alt="Diamond Pendant">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Pendent
+                        Diamond Pendant
                      </h5>
                      <h6>
                         $58
@@ -323,20 +415,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Gold Ring" 
+                           data-price="80" 
+                           data-image="../images/jewellery_and_accessories/j7_ring.jpg"
+                           data-description="Elegant gold ring with intricate design. Comfortable fit and premium quality materials.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j7_ring.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j7_ring.jpg" alt="Gold Ring">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Ring
+                        Gold Ring
                      </h5>
                      <h6>
                         $80
@@ -348,20 +444,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Designer Bracelet" 
+                           data-price="65" 
+                           data-image="../images/jewellery_and_accessories/j8_kanjgan.jpg"
+                           data-description="Designer bracelet with unique patterns. Made with high-quality materials for durability.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j8_kanjgan.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j8_kanjgan.jpg" alt="Designer Bracelet">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Breslate
+                        Designer Bracelet
                      </h5>
                      <h6>
                         $65
@@ -373,20 +473,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Pearl Earrings" 
+                           data-price="65" 
+                           data-image="../images/jewellery_and_accessories/j9_earing.jpg"
+                           data-description="Elegant pearl earrings with secure fittings. Perfect for both casual and formal wear.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j9_earing.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j9_earing.jpg" alt="Pearl Earrings">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        EarRing
+                        Pearl Earrings
                      </h5>
                      <h6>
                         $65
@@ -398,20 +502,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Gold Earrings" 
+                           data-price="65" 
+                           data-image="../images/jewellery_and_accessories/j10_earring.jpg"
+                           data-description="Traditional gold earrings with intricate designs. Lightweight and comfortable for daily wear.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j10_earring.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j10_earring.jpg" alt="Gold Earrings">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        EarRing
+                        Gold Earrings
                      </h5>
                      <h6>
                         $65
@@ -423,20 +531,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Diamond Earrings" 
+                           data-price="65" 
+                           data-image="../images/jewellery_and_accessories/j11_earring.jpg"
+                           data-description="Sparkling diamond earrings with secure settings. Perfect for adding elegance to any outfit.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j11_earring.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j11_earring.jpg" alt="Diamond Earrings">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        EarRing
+                        Diamond Earrings
                      </h5>
                      <h6>
                         $65
@@ -448,20 +560,24 @@
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="" class="option1">
+                        <a href="" class="option1 add-to-cart">
                            Add To Cart
                         </a>
-                        <a href="" class="option2">
+                        <a href="javascript:void(0)" class="option2 buy-now" 
+                           data-product="Silver Bracelet" 
+                           data-price="65" 
+                           data-image="../images/jewellery_and_accessories/j12_breslate.jpg"
+                           data-description="Elegant silver bracelet with fine craftsmanship. Hypoallergenic and perfect for sensitive skin.">
                            Buy Now
                         </a>
                      </div>
                   </div>
                   <div class="img-box">
-                     <img src="../images/jewellery_and_accessories/j12_breslate.jpg" alt="">
+                     <img src="../images/jewellery_and_accessories/j12_breslate.jpg" alt="Silver Bracelet">
                   </div>
                   <div class="detail-box">
                      <h5>
-                        Breslate
+                        Silver Bracelet
                      </h5>
                      <h6>
                         $65
@@ -478,6 +594,25 @@
       </div>
    </section>
    <!-- end product section -->
+
+   <!-- Product Quick View Modal -->
+   <div id="productModal" class="product-modal">
+      <div class="modal-content">
+         <span class="close-modal">&times;</span>
+         <div class="quick-view-content">
+            <div class="quick-view-image">
+               <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="quick-view-details">
+               <h3 id="modal-product-name"></h3>
+               <p id="modal-product-price"></p>
+               <p id="modal-product-description"></p>
+               <button class="btn-buy-now" id="modal-buy-now">Proceed to Buy</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <!-- footer section -->
    <footer class="footer_section">
       <div class="container">
@@ -512,7 +647,7 @@
             <div class="col-md-4 footer-col">
                <div class="footer_detail">
                   <a href="../index.html" class="footer-logo">
-                     Famms
+                     Bajar App
                   </a>
                   <p>
                      Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200
@@ -558,6 +693,7 @@
       </div>
    </footer>
    <!-- footer section -->
+
    <!-- jQery -->
    <script src="../js/jquery-3.4.1.min.js"></script>
    <!-- popper js -->
@@ -566,6 +702,65 @@
    <script src="../js/bootstrap.js"></script>
    <!-- custom js -->
    <script src="../js/custom.js"></script>
+   
+   <script>
+      // Function to handle Buy Now clicks
+      document.addEventListener('DOMContentLoaded', function() {
+         // Get all Buy Now buttons
+         const buyNowButtons = document.querySelectorAll('.buy-now');
+         const modal = document.getElementById('productModal');
+         const closeModal = document.querySelector('.close-modal');
+         const modalBuyNow = document.getElementById('modal-buy-now');
+         
+         // Add click event to each Buy Now button
+         buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+               // Get product details from data attributes
+               const productName = this.getAttribute('data-product');
+               const productPrice = this.getAttribute('data-price');
+               const productImage = this.getAttribute('data-image');
+               const productDescription = this.getAttribute('data-description');
+               
+               // Update modal content
+               document.getElementById('modal-product-name').textContent = productName;
+               document.getElementById('modal-product-price').textContent = '$' + productPrice;
+               document.getElementById('modal-product-image').src = productImage;
+               document.getElementById('modal-product-image').alt = productName;
+               document.getElementById('modal-product-description').textContent = productDescription;
+               
+               // Set up the Buy Now button in modal to redirect to checkout page
+               modalBuyNow.onclick = function() {
+                  // Redirect to checkout page with product parameters
+                  window.location.href = `buy-now.html?product=${encodeURIComponent(productName)}&price=${productPrice}&image=${encodeURIComponent(productImage)}`;
+               };
+               
+               // Show the modal
+               modal.style.display = 'block';
+            });
+         });
+         
+         // Close modal when clicking on X
+         closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+         });
+         
+         // Close modal when clicking outside of it
+         window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+               modal.style.display = 'none';
+            }
+         });
+         
+         // Prevent default behavior for Add to Cart buttons (for demonstration)
+         const addToCartButtons = document.querySelectorAll('.add-to-cart');
+         addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+               e.preventDefault();
+               alert('Product added to cart!');
+            });
+         });
+      });
+   </script>
 </body>
 
 </html>
