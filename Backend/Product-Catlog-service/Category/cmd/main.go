@@ -1,14 +1,16 @@
 package main
 
 import (
+	"category-service/internal/config"
+	"category-service/internal/handlers"
+	"category-service/internal/repository"
+	"category-service/internal/services"
 	"log"
 	"net/http"
-	"product-catalog-service/Category/internal/config"
-	"product-catalog-service/Category/internal/handlers"
-	"product-catalog-service/Category/internal/repository"
-	"product-catalog-service/Category/internal/services"
-	"product-catalog-service/database"
-	"product-catalog-service/middleware"
+	"product-catalog-shared/database"
+	"product-catalog-shared/middleware"
+
+	// "category-service/internal/config"
 
 	"github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
