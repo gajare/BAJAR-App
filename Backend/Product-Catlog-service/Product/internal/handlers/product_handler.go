@@ -3,10 +3,11 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-	"product-service/internal/models"
-	"product-service/internal/services"
 	"response"
 	"strconv"
+
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/models"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/services"
 
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"

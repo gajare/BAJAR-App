@@ -1,8 +1,8 @@
 package services
 
 import (
-	"product-service/internal/models"
-	"product-service/internal/repository"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/models"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/repository"
 )
 
 type ProductService interface {

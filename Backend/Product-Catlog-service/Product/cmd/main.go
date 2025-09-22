@@ -5,10 +5,11 @@ import (
 	"log"
 	"middleware"
 	"net/http"
-	"product-service/internal/config"
-	"product-service/internal/handlers"
-	"product-service/internal/repository"
-	"product-service/internal/services"
+
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/config"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/handlers"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/repository"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/services"
 
 	"github.com/gorilla/mux"
 	_ "github.com/jinzhu/gorm/dialects/postgres"

@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"product-service/internal/models"
+	"github.com/gajare/BAJAR-App/Backend/Product-Catalog-Service/Product/internal/models"
 
 	"github.com/jinzhu/gorm"
 )
