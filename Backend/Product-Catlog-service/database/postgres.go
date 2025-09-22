@@ -11,5 +11,8 @@ func InitDB(databaseURL string) (*gorm.DB, error) {
 		return nil, err
 	}
 
+	// Enable UUID extension
+	db.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"")
+
 	return db, nil
 }
