@@ -14,13 +14,16 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		Name     string `json:"name"`
 		Email    string `json:"email"`
 		Password string `json:"password"`
+		Phone    string `json:"phone"`
+		Address  string `json:"address"`
 	}
+
 	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
 		return
 	}
 	hash, _ := utils.HashPassword(input.Password)
-	user := models.User{Name: input.Name, Email: input.Email, Password: hash}
+	user := models.User{Name: input.Name, Email: input.Email, Password: hash, Phone: input.Phone, Address: input.Address}
 	if err := db.DB.Create(&user).Error; err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
