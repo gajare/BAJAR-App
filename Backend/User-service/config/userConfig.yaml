@@ -1,0 +1,12 @@
+jwt_secret: "supersecret"
+port: "8080"
+database:
+  host: localhost
+  user: postgres
+  password: 1234
+  name: users
+  port: 5432
+  sslmode: disable
+  timezone: UTC
+jwt_secret: "supersecret"
+port: "8080"
