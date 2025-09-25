@@ -4,30 +4,38 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
 	"user-service/config"
 	"user-service/controller"
 	"user-service/db"
-	"user-service/middleware"
+	"user-service/repository"
+	"user-service/service"
+
+	"user-service/router"
+
+	"go.uber.org/zap"
 )
 
 func main() {
 
+	// Initialize logger
+	logger, err := zap.NewProduction()
+	if err != nil {
+		log.Fatal("Failed to initialize logger:", err)
+	}
+	defer logger.Sync()
+
 	cfg := config.Load()
-	db.InitDB(cfg.DatabaseDSN)
+	db.InitDB(cfg.BuildDSN())
 
-	r := mux.NewRouter()
-	r.Use(middleware.RateLimitMiddleware)
+	userRepo := repository.NewUserRepository(db.DB)
+	userService := service.NewUserService(userRepo)
+	userController := &controller.UserController{
+		Service: *userService,
+		Logger:  logger,
+	}
 
-	// public
-	r.HandleFunc("/register", controller.Register).Methods("POST")
-	r.HandleFunc("/login", controller.Login).Methods("POST")
-
-	// protected
-	auth := r.PathPrefix("/api").Subrouter()
-	auth.Use(middleware.JwtAuthMiddleware)
-	auth.HandleFunc("/me", controller.GetProfile).Methods("GET")
-	auth.HandleFunc("/users", controller.ListUsers).Methods("GET")
+	// Use grouped router from user_router.go
+	r := router.NewUserRouter(userController)
 
 	log.Printf("Server running on :%s", cfg.Port)
 	log.Fatal(http.ListenAndServe(":"+cfg.Port, r))
