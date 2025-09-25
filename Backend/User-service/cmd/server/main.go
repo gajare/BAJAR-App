@@ -30,7 +30,7 @@ func main() {
 	userRepo := repository.NewUserRepository(db.DB)
 	userService := service.NewUserService(userRepo)
 	userController := &controller.UserController{
-		Service: *userService,
+		UserService: *userService,
 		Logger:  logger,
 	}
 

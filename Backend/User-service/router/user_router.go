@@ -20,8 +20,8 @@ func NewUserRouter(userController *controller.UserController) *mux.Router {
 	r.Use(middleware.RateLimitMiddleware)
 
 	routes := []Route{
-		{"/register", "POST", controller.Register, false},
-		{"/login", "POST", controller.Login, false},
+		{"/register", "POST", userController.Register, false},
+		{"/login", "POST", userController.Login, false},
 		{"/api/me", "GET", userController.GetProfile, true},
 		{"/api/users", "GET", userController.ListUsers, true},
 	}

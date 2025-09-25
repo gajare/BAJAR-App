@@ -3,57 +3,43 @@ package controller
 import (
 	"encoding/json"
 	"net/http"
-	"time"
-	"user-service/db"
 	"user-service/models"
-	"user-service/utils"
+	"user-service/service"
+
+	"go.uber.org/zap"
 )
 
-func Register(w http.ResponseWriter, r *http.Request) {
-	var input struct {
-		Name     string `json:"name"`
-		Email    string `json:"email"`
-		Password string `json:"password"`
-		Phone    string `json:"phone"`
-		Address  string `json:"address"`
-	}
+type UserController struct {
+	UserService service.UserService
+	Logger      *zap.Logger
+}
 
-	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
+
+
+func (uc *UserController) Register(w http.ResponseWriter, r *http.Request) {
+	var userReq models.UserRequest
+	if err := json.NewDecoder(r.Body).Decode(&userReq); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
 		return
 	}
-	hash, _ := utils.HashPassword(input.Password)
-	user := models.User{Name: input.Name, Email: input.Email, Password: hash, Phone: input.Phone, Address: input.Address}
-	if err := db.DB.Create(&user).Error; err != nil {
+	resp, err := uc.UserService.Register(r.Context(), &userReq)
+	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	json.NewEncoder(w).Encode(map[string]interface{}{
-		"id":    user.ID,
-		"email": user.Email,
-	})
+	json.NewEncoder(w).Encode(resp)
 }
 
-func Login(w http.ResponseWriter, r *http.Request) {
-	var input struct {
-		Email    string `json:"email"`
-		Password string `json:"password"`
-	}
-	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
+func (uc *UserController) Login(w http.ResponseWriter, r *http.Request) {
+	var userReq models.UserRequest
+	if err := json.NewDecoder(r.Body).Decode(&userReq); err != nil {
 		http.Error(w, "invalid json", http.StatusBadRequest)
 		return
 	}
-	var user models.User
-	if err := db.DB.Where("email = ?", input.Email).First(&user).Error; err != nil {
+	resp, err := uc.UserService.Login(r.Context(), &userReq)
+	if err != nil {
 		http.Error(w, "invalid credentials", http.StatusUnauthorized)
 		return
 	}
-	if err := utils.CheckPassword(user.Password, input.Password); err != nil {
-		http.Error(w, "invalid credentials", http.StatusUnauthorized)
-		return
-	}
-	token, _ := utils.CreateToken(user.ID, 24*time.Hour)
-	json.NewEncoder(w).Encode(map[string]string{
-		"token": token,
-	})
+	json.NewEncoder(w).Encode(resp)
 }

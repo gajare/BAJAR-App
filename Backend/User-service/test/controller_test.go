@@ -13,10 +13,21 @@ import (
 	"go.uber.org/zap"
 )
 
+func getUserController() *controller.UserController {
+	logger, _ := zap.NewDevelopment()
+	userRepo := repository.NewUserRepository(db.DB)
+	userService := service.NewUserService(userRepo)
+	return &controller.UserController{
+		UserService: *userService,
+		Logger:      logger,
+	}
+}
+
 func TestRegister(t *testing.T) {
 	req := httptest.NewRequest("POST", "/register", nil)
 	w := httptest.NewRecorder()
-	controller.Register(w, req)
+	userController := getUserController()
+	userController.Register(w, req)
 	if w.Code != http.StatusOK && w.Code != http.StatusBadRequest {
 		t.Errorf("unexpected status code: %d", w.Code)
 	}
@@ -25,7 +36,8 @@ func TestRegister(t *testing.T) {
 func TestLogin(t *testing.T) {
 	req := httptest.NewRequest("POST", "/login", nil)
 	w := httptest.NewRecorder()
-	controller.Login(w, req)
+	userController := getUserController()
+	userController.Login(w, req)
 	if w.Code != http.StatusOK && w.Code != http.StatusUnauthorized && w.Code != http.StatusBadRequest {
 		t.Errorf("unexpected status code: %d", w.Code)
 	}
@@ -37,13 +49,7 @@ func TestGetProfile(t *testing.T) {
 	ctx := req.Context()
 	ctx = context.WithValue(ctx, "userID", "1") // Set dummy userID as string
 	req = req.WithContext(ctx)
-	logger, _ := zap.NewDevelopment()
-	userRepo := repository.NewUserRepository(db.DB)
-	userService := service.NewUserService(userRepo)
-	userController := &controller.UserController{
-		Service: *userService,
-		Logger:  logger,
-	}
+	userController := getUserController()
 	userController.GetProfile(w, req)
 	if w.Code != http.StatusOK && w.Code != http.StatusNotFound {
 		t.Errorf("unexpected status code: %d", w.Code)
@@ -53,13 +59,7 @@ func TestGetProfile(t *testing.T) {
 func TestListUsers(t *testing.T) {
 	req := httptest.NewRequest("GET", "/users", nil)
 	w := httptest.NewRecorder()
-	logger, _ := zap.NewDevelopment()
-	userRepo := repository.NewUserRepository(db.DB)
-	userService := service.NewUserService(userRepo)
-	userController := &controller.UserController{
-		Service: *userService,
-		Logger:  logger,
-	}
+	userController := getUserController()
 	userController.ListUsers(w, req)
 	if w.Code != http.StatusOK {
 		t.Errorf("unexpected status code: %d", w.Code)

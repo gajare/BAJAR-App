@@ -2,8 +2,10 @@ package service
 
 import (
 	"context"
+	"time"
 	"user-service/models"
 	"user-service/repository"
+	"user-service/utils"
 )
 
 type UserService struct {
@@ -57,4 +59,38 @@ func (s *UserService) ChangePassword(ctx context.Context, id string, newPassword
 // ResetPassword resets a user's password
 func (s *UserService) ResetPassword(ctx context.Context, email, newPassword string) error {
 	return s.repo.ResetPassword(ctx, email, newPassword)
+}
+
+// Register registers a new user
+func (s *UserService) Register(ctx context.Context, req *models.UserRequest) (*models.UserResponse, error) {
+	hash, err := utils.HashPassword(req.Password)
+	if err != nil {
+		return nil, err
+	}
+	user := models.User{
+		Name:     req.Name,
+		Email:    req.Email,
+		Password: hash,
+		Phone:    req.Phone,
+		Address:  req.Address,
+	}
+	if err := s.repo.CreateUser(ctx, &user); err != nil {
+		return nil, err
+	}
+	resp := &models.UserResponse{ID: user.ID, Email: user.Email}
+	return resp, nil
+}
+
+// Login logs in a user
+func (s *UserService) Login(ctx context.Context, req *models.UserRequest) (*models.UserResponse, error) {
+	user, err := s.repo.GetUserByEmail(ctx, req.Email)
+	if err != nil {
+		return nil, err
+	}
+	if err := utils.CheckPassword(user.Password, req.Password); err != nil {
+		return nil, err
+	}
+	token, _ := utils.CreateToken(user.ID, 24*time.Hour)
+	resp := &models.UserResponse{ID: user.ID, Email: user.Email, Token: token}
+	return resp, nil
 }
