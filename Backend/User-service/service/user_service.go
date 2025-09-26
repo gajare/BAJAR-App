@@ -6,6 +6,8 @@ import (
 	"user-service/models"
 	"user-service/repository"
 	"user-service/utils"
+
+	"go.uber.org/zap"
 )
 
 type UserService struct {
@@ -77,6 +79,7 @@ func (s *UserService) Register(ctx context.Context, req *models.UserRequest) (*m
 	if err := s.repo.CreateUser(ctx, &user); err != nil {
 		return nil, err
 	}
+	// TODO: send verification email/OTP here if needed
 	resp := &models.UserResponse{ID: user.ID, Email: user.Email}
 	return resp, nil
 }
@@ -93,4 +96,33 @@ func (s *UserService) Login(ctx context.Context, req *models.UserRequest) (*mode
 	token, _ := utils.CreateToken(user.ID, 24*time.Hour)
 	resp := &models.UserResponse{ID: user.ID, Email: user.Email, Token: token}
 	return resp, nil
+}
+
+// Logout logs out a user
+func (s *UserService) Logout(ctx context.Context, userID string) error {
+	zap.L().Info("Logout called", zap.String("userID", userID))
+	// TODO: Implement token invalidation logic
+	return nil
+}
+
+// Refresh refreshes the JWT token
+func (s *UserService) Refresh(ctx context.Context, refreshToken string) (string, error) {
+	zap.L().Info("Refresh called", zap.String("refreshToken", refreshToken))
+	// TODO: Implement JWT refresh logic
+	return "", nil
+}
+
+// ForgotPassword handles the password reset request
+func (s *UserService) ForgotPassword(ctx context.Context, email string) error {
+	zap.L().Info("ForgotPassword called", zap.String("email", email))
+	// TODO: Implement password reset request logic (send OTP/email)
+	return nil
+}
+
+
+// VerifyEmail verifies the user's email
+func (s *UserService) VerifyEmail(ctx context.Context, tokenOrOTP string) error {
+	zap.L().Info("VerifyEmail called", zap.String("tokenOrOTP", tokenOrOTP))
+	// TODO: Implement email verification logic
+	return nil
 }

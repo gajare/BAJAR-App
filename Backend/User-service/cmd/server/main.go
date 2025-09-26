@@ -1,8 +1,19 @@
+// @title User Service API
+// @version 1.0
+// @description API for user management
+// @host localhost:8080
+// @BasePath /
+// @securityDefinitions.apikey BearerAuth
+// @in header
+// @name Authorization
+
 package main
 
 import (
 	"log"
 	"net/http"
+
+	httpSwagger "github.com/swaggo/http-swagger"
 
 	"user-service/config"
 	"user-service/controller"
@@ -13,6 +24,8 @@ import (
 	"user-service/router"
 
 	"go.uber.org/zap"
+
+	_ "user-service/docs" // Swagger docs import
 )
 
 func main() {
@@ -31,13 +44,16 @@ func main() {
 	userService := service.NewUserService(userRepo)
 	userController := &controller.UserController{
 		UserService: *userService,
-		Logger:  logger,
+		Logger:      logger,
 	}
 
 	// Use grouped router from user_router.go
 	r := router.NewUserRouter(userController)
 
-	log.Printf("Server running on :%s", cfg.Port)
-	log.Fatal(http.ListenAndServe(":"+cfg.Port, r))
+	// Serve Swagger UI via mux router
+	r.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
+	log.Printf("Server running on :%s", cfg.Port)
+	log.Printf("Swagger docs available at http://localhost:%s/swagger/index.html", cfg.Port)
+	log.Fatal(http.ListenAndServe(":"+cfg.Port, r))
 }
